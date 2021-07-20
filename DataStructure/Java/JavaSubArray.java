@@ -2,46 +2,50 @@ package hackerrank.DataStructure.Java;
 
 //We can solve this problem using Brute Force Approach in O(n^2) Time Comlexity
 // Time Complexity ---> O(n) using Kadan's Algorithm
+//Check for optimised Solution
 
 import java.util.Scanner;
 
 public class JavaSubArray {
 
-    public static int getMaxSumSubArray(int arr[], int n){
+    public static int getNumerOfNegativeSumSubArray(int arr[], int n) {
 
-        int maxSum = Integer.MIN_VALUE;
-        int sumEnds = 0;
         int count = 0;
+        int minSum = 0;
 
-        for(int i=0; i <n; i++){
-            sumEnds = sumEnds + arr[i];
-            if(maxSum < sumEnds){
-                maxSum = sumEnds;
-            }
+//        for(int i=0; i<n; i++) if(arr[i] < 0) count++;
 
-            if(sumEnds < 0){
-                count++;
-                sumEnds = 0;
+// 1 -2 4 -5 1
+        for (int i = 0; i < n; i++) {
+
+            for (int j = i; j < n; j++) {
+                minSum = minSum + arr[j];
+                if (minSum < 0) {
+                    count++;
+//                    System.out.println("True"+i);
+                }
+                ;
             }
+            minSum = 0;
         }
-        System.out.println(count);
-        return maxSum;
+
+        return count;
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
-        Scanner in =  new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
         int n = in.nextInt();
 
-        int arr[] =  new int[n];
+        int arr[] = new int[n];
 
-        for(int i=0; i<n; i++){
+        for (int i = 0; i < n; i++) {
             int val = in.nextInt();
             arr[i] = val;
         }
 
-        int result = getMaxSumSubArray(arr,n);
+        int result = getNumerOfNegativeSumSubArray(arr, n);
 
         System.out.println(result);
 
