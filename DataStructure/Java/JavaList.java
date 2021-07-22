@@ -18,9 +18,6 @@ public class JavaList {
                 int val =in.nextInt();
                list.add(val);
             }
-            for(int i=0; i<n; i++){
-                System.out.print(list.get(i)+" ");
-            }
 
             int numberOfQuery = in.nextInt();
 

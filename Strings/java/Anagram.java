@@ -1,4 +1,4 @@
-package hackerrank;
+package hackerrank.Strings.java;
 
 public class Anagram {
 

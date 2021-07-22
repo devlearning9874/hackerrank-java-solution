@@ -1,4 +1,4 @@
-package hackerrank;
+package hackerrank.Strings.java;
 
 import java.util.ArrayList;
 import java.util.Collections;
